@@ -3,10 +3,11 @@
 //HumanクラスとEnemyクラスを使う準備
 require_once('./classes/Human.php');
 require_once('./classes/Enemy.php');
+require_once('./classes/Brave.php');
 
 //インスタンス化(Humanクラス、Enemyクラスを使って人間、敵キャラを作る)
 //Humanクラスのコピーが$tiidaに入るイメージ
-$tiida = new Human();
+$tiida  = new Brave();
 $goblin = new Enemy();
 
 //名前を設定
