@@ -10,6 +10,9 @@ class Enemy
     public function doAttack($human)
     {
         echo"『".$this->name."』の攻撃!\n";
+        
+        //自身のクラスには人間の情報が無い、人間は別クラス
+        //->引数で持ってきて敵クラスの中の関数で使う
         echo"『".$human->name."』に".$this->attackPoint."のダメージ!\n";
         $human->tookDamage($this->attackPoint);
     }
