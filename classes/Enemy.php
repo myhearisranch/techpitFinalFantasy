@@ -7,13 +7,33 @@ class Enemy
     private $hitPoint = 50;
     private $attackPoint = 10;
     
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getHitPoint()
+    {
+        return $this->hitPoint;
+    }
+
+    public function getAttackPoint()
+    {
+        return $this->attackPoint;
+    }
+    
     public function doAttack($human)
     {
-        echo"『".$this->name."』の攻撃!\n";
+        echo"『".$this->getName()."』の攻撃!\n";
         
         //自身のクラスには人間の情報が無い、人間は別クラス
         //->引数で持ってきて敵クラスの中の関数で使う
-        echo"『".$human->name."』に".$this->attackPoint."のダメージ!\n";
+        echo"『".$human->getName()."』に".$this->attackPoint."のダメージ!\n";
         $human->tookDamage($this->attackPoint);
     }
     
