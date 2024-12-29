@@ -8,6 +8,7 @@ $loader = new Loader();
 
 //classesフォルダの中身をロード対象ディレクトリとして登録
 $loader->regDirectory(__DIR__.'/classes');
+$loader->regDirectory(__DIR__.'/classes/constants');
 $loader->register();
 
 //インスタンス化(Humanクラス、Enemyクラスを使って人間、敵キャラを作る)
@@ -17,15 +18,15 @@ $loader->register();
 
 //味方パーティーの作成
 $members = array();
-$members[] = new Brave('ティーダ');
-$members[] = new WhiteMage('ユウナ');
-$members[] = new BlackMage('ルールー');
+$members[] = new Brave(CharacterName::TIIDA);
+$members[] = new WhiteMage(CharacterName::YUNA);
+$members[] = new BlackMage(CharacterName::RULU);
 
 //敵パーティーの作成
 $enemies = array();
-$enemies[] = new Enemy('ゴブリン', 20);
-$enemies[] = new Enemy('ボム', 25);
-$enemies[] = new Enemy('モルボル', 30);
+$enemies[] = new Enemy(EnemyName::GOBLINS, 20);
+$enemies[] = new Enemy(EnemyName::BOMB, 25);
+$enemies[] = new Enemy(EnemyName::MORBOL, 30);
 
 
 $turn = 1;
