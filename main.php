@@ -49,22 +49,19 @@ while (!$isFinishFlg) {
     
     //攻撃 doAttackメソッドを呼ぶ
     foreach ($members as $member) {
-         $enemyIndex = rand(0, count($enemies) - 1); 
-         $enemy = $enemies[$enemyIndex];
+        
          // 白魔道士の場合、味方のオブジェクトも渡す
          if (get_class($member) == "WhiteMage") {
-             $member->doAttackWhiteMage($enemy, $member);
+             $member->doAttackWhiteMage($enemies, $members);
          } else {
-             $member->doAttack($enemy);
+             $member->doAttack($enemies);
          }
         echo "\n";
      }
      echo "\n";
    
     foreach ($enemies as $enemy) {
-         $memberIndex = rand(0, count($members) - 1); 
-         $member = $members[$memberIndex];
-         $enemy->doAttack($member);
+         $enemy->doAttack($members);
          echo "\n";
      }
     

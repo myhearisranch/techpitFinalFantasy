@@ -28,8 +28,17 @@ class Enemy
         return $this->attackPoint;
     }
     
-    public function doAttack($human)
+    public function doAttack($humans)
     {
+        
+        //チェック1 : 自身のHPが0かどうか
+        if ($this->getHitPoint() <= 0) {
+            return false;
+        }
+        
+        $humanIndex = rand(0, count($humans) - 1); 
+        $human = $humans[$humanIndex];
+        
         echo"『".$this->getName()."』の攻撃!\n";
         
         //自身のクラスには人間の情報が無い、人間は別クラス

@@ -24,8 +24,17 @@ class Brave extends Human
     //publicによってカプセル化される。
     //カプセル化をすることで外部からのアクセスが可能になる。
     
-    public function doAttack($enemy)
+    public function doAttack($enemies)
     {
+        
+        //チェック1: 自身のHPが0かどうか
+        if ($this->getHitPoint()<=0) {
+            return false;
+        }
+        
+        $enemyIndex = rand(0, count($enemies) - 1); // 添字は0から始まるので、-1する
+        $enemy = $enemies[$enemyIndex];
+        
         //乱数の発生
         if (rand(1, 3) === 1){
             //スキルの発動
@@ -34,7 +43,7 @@ class Brave extends Human
             echo $enemy->getName(). "に".$this->attackPoint*1.5."のダメージ!\n";
             $enemy->tookDamage($this->attackPoint*1.5);
         } else {
-            parent::doAttack($enemy);
+            parent::doAttack($enemies);
         }
         return true;
     }
