@@ -1,6 +1,7 @@
 <?php
 
 require_once('./lib/Loader.php');
+require_once('./lib/Utility.php');
 
 //オートロード(自動でクラスを読みに行く仕組み)
 $loader = new Loader();
